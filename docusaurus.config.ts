@@ -138,6 +138,40 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+  headTags: [
+    {
+      tagName: "link",
+      attributes: {
+        href: "/speedcubing/favicons/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+        rel: "apple-touch-icon",
+      }
+    },
+    {
+      tagName: "link",
+      attributes: {
+        href: "/speedcubing/favicons/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      }
+    },
+    {
+      tagName: "link",
+      attributes: {
+        href: "/speedcubing/favicons/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      }
+    },
+    {
+      tagName: "link",
+      attributes: {
+        href: "/speedcubing/favicons/site.webmanifest",
+        rel: "manifest",
+      }
+    }
+  ] satisfies Config.HeadTags,
 };
 
 export default config;
