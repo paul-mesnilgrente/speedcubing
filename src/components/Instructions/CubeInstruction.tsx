@@ -2,12 +2,12 @@ import styles from './styles.module.css';
 
 export default function CubeInstruction({
   title,
-  imagePath,
+  src,
   hold,
   children,
 }: {
   title: string;
-  imagePath: string;
+  src: string;
   hold: string;
   children: React.ReactNode;
 }) {
@@ -15,7 +15,7 @@ export default function CubeInstruction({
     <div className={styles.instructions__block}>
       <p className={styles.instructions__title}>{title}</p>
       <img
-        src={imagePath}
+        src={src}
         width="225"
         height="225"
         alt=""

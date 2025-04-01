@@ -27,14 +27,14 @@ Reminder:
 <Instructions>
   <CubeInstruction
     title="Sune"
-    imagePath="/img/2-look-oll/image.png"
+    src={require("@site/static/img/2-look-oll/image.png").default}
     hold="Hold yellow on top, blue front"
   >
     (R U R') (U R U2 R')
   </CubeInstruction>
   <CubeInstruction
     title="Anti-Sune"
-    imagePath="/img/2-look-oll/image-1.png"
+    src={require("@site/static/img/2-look-oll/image-1.png").default}
     hold="Hold yellow on top, blue front"
   >
     (R U2 R') U' R U' R'
@@ -44,10 +44,10 @@ Reminder:
 ### Crosses
 
 <Instructions>
-  <CubeInstruction title="Cross 1" imagePath="/img/2-look-oll/image-2.png" hold="">
+  <CubeInstruction title="Cross 1" src={require("@site/static/img/2-look-oll/image-2.png").default} hold="">
     (R U R' U) (R U R' U) (R U2 R')
   </CubeInstruction>
-  <CubeInstruction title="Cross 2" imagePath="/img/2-look-oll/image-3.png" hold="">
+  <CubeInstruction title="Cross 2" src={require("@site/static/img/2-look-oll/image-3.png").default} hold="">
     R U2 (R2 U') (R2 U') R2 U2 R
   </CubeInstruction>
 </Instructions>
@@ -57,17 +57,17 @@ Reminder:
 <Instructions>
   <CubeInstruction
     title="Chameleon"
-    imagePath="/img/2-look-oll/image-4.png"
+    src={require("@site/static/img/2-look-oll/image-4.png").default}
     hold=""
   >
     (r U R' U') (r' F R F')
   </CubeInstruction>
-  <CubeInstruction title="Kite" imagePath="/img/2-look-oll/image-5.png" hold="">
+  <CubeInstruction title="Kite" src={require("@site/static/img/2-look-oll/image-5.png").default} hold="">
     F' (r U R' U') (r' F R)
   </CubeInstruction>
   <CubeInstruction
     title="Headlights"
-    imagePath="/img/2-look-oll/image-6.png"
+    src={require("@site/static/img/2-look-oll/image-6.png").default}
     hold=""
   >
     R2 D (R' U2 R) D' (R' U2 R')

@@ -20,28 +20,28 @@ import Instructions from "@site/src/components/Instructions/Instructions";
 <Instructions>
   <CubeInstruction
     title="Right pair"
-    imagePath="/img/intuitive-f2l/image.png"
+    src={require("@site/static/img/intuitive-f2l/image.png").default}
     hold="Hold right"
   >
     U R U' R'
   </CubeInstruction>
   <CubeInstruction
     title="Left pair"
-    imagePath="/img/intuitive-f2l/image-1.png"
+    src={require("@site/static/img/intuitive-f2l/image-1.png").default}
     hold="Hold left"
   >
     U' L' U L
   </CubeInstruction>
   <CubeInstruction
     title="Right insert"
-    imagePath="/img/intuitive-f2l/image-8.png"
+    src={require("@site/static/img/intuitive-f2l/image-8.png").default}
     hold="Hold right"
   >
     R U R'
   </CubeInstruction>
   <CubeInstruction
     title="Left insert"
-    imagePath="/img/intuitive-f2l/image-3.png"
+    src={require("@site/static/img/intuitive-f2l/image-3.png").default}
     hold="Hold left"
   >
     L' U' L
@@ -57,21 +57,21 @@ We want to pairs on top but disconnected.
 <Instructions>
   <CubeInstruction
     title="Edge middle layer"
-    imagePath="/img/intuitive-f2l/image-6.png"
+    src={require("@site/static/img/intuitive-f2l/image-6.png").default}
     hold="Hold corner left"
   >
     R U R'
   </CubeInstruction>
   <CubeInstruction
     title="Corner bottom layer"
-    imagePath="/img/intuitive-f2l/image-5.png"
+    src={require("@site/static/img/intuitive-f2l/image-5.png").default}
     hold="Hold edge left"
   >
     R U R'
   </CubeInstruction>
   <CubeInstruction
     title="Both pieces stuck"
-    imagePath="/img/intuitive-f2l/image-4.png"
+    src={require("@site/static/img/intuitive-f2l/image-4.png").default}
     hold="Hold right"
   >
     R U' R'
@@ -83,14 +83,14 @@ We want to pairs on top but disconnected.
 <Instructions>
   <CubeInstruction
     title="Top left"
-    imagePath="/img/intuitive-f2l/image-7.png"
+    src={require("@site/static/img/intuitive-f2l/image-7.png").default}
     hold="Hold right above a non-connected corner"
   >
     R U2 R'
   </CubeInstruction>
   <CubeInstruction
     title="Top right"
-    imagePath="/img/intuitive-f2l/image-9.png"
+    src={require("@site/static/img/intuitive-f2l/image-9.png").default}
     hold="Hold top right"
   >
     R U2 R'
