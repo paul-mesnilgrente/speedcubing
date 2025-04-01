@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import CubeInstruction from "@site/src/components/Instructions/CubeInstruction";
 import Instructions from "@site/src/components/Instructions/Instructions";
 
@@ -27,14 +28,14 @@ Reminder:
 <Instructions>
   <CubeInstruction
     title="Sune"
-    src={require("@site/static/img/2-look-oll/image.png").default}
+    src={useBaseUrl("/img/2-look-oll/image.png")}
     hold="Hold yellow on top, blue front"
   >
     (R U R') (U R U2 R')
   </CubeInstruction>
   <CubeInstruction
     title="Anti-Sune"
-    src={require("@site/static/img/2-look-oll/image-1.png").default}
+    src={useBaseUrl("/img/2-look-oll/image-1.png")}
     hold="Hold yellow on top, blue front"
   >
     (R U2 R') U' R U' R'
@@ -44,10 +45,10 @@ Reminder:
 ### Crosses
 
 <Instructions>
-  <CubeInstruction title="Cross 1" src={require("@site/static/img/2-look-oll/image-2.png").default} hold="">
+  <CubeInstruction title="Cross 1" src={useBaseUrl("/img/2-look-oll/image-2.png")} hold="">
     (R U R' U) (R U R' U) (R U2 R')
   </CubeInstruction>
-  <CubeInstruction title="Cross 2" src={require("@site/static/img/2-look-oll/image-3.png").default} hold="">
+  <CubeInstruction title="Cross 2" src={useBaseUrl("/img/2-look-oll/image-3.png")} hold="">
     R U2 (R2 U') (R2 U') R2 U2 R
   </CubeInstruction>
 </Instructions>
@@ -57,17 +58,17 @@ Reminder:
 <Instructions>
   <CubeInstruction
     title="Chameleon"
-    src={require("@site/static/img/2-look-oll/image-4.png").default}
+    src={useBaseUrl("/img/2-look-oll/image-4.png")}
     hold=""
   >
     (r U R' U') (r' F R F')
   </CubeInstruction>
-  <CubeInstruction title="Kite" src={require("@site/static/img/2-look-oll/image-5.png").default} hold="">
+  <CubeInstruction title="Kite" src={useBaseUrl("/img/2-look-oll/image-5.png")} hold="">
     F' (r U R' U') (r' F R)
   </CubeInstruction>
   <CubeInstruction
     title="Headlights"
-    src={require("@site/static/img/2-look-oll/image-6.png").default}
+    src={useBaseUrl("/img/2-look-oll/image-6.png")}
     hold=""
   >
     R2 D (R' U2 R) D' (R' U2 R')

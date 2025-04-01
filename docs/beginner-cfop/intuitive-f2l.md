@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 ---
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import CubeInstruction from "@site/src/components/Instructions/CubeInstruction";
 import Instructions from "@site/src/components/Instructions/Instructions";
 
@@ -20,28 +21,28 @@ import Instructions from "@site/src/components/Instructions/Instructions";
 <Instructions>
   <CubeInstruction
     title="Right pair"
-    src={require("@site/static/img/intuitive-f2l/image.png").default}
+    src={useBaseUrl("/img/intuitive-f2l/image.png")}
     hold="Hold right"
   >
     U R U' R'
   </CubeInstruction>
   <CubeInstruction
     title="Left pair"
-    src={require("@site/static/img/intuitive-f2l/image-1.png").default}
+    src={useBaseUrl("/img/intuitive-f2l/image-1.png")}
     hold="Hold left"
   >
     U' L' U L
   </CubeInstruction>
   <CubeInstruction
     title="Right insert"
-    src={require("@site/static/img/intuitive-f2l/image-8.png").default}
+    src={useBaseUrl("/img/intuitive-f2l/image-8.png")}
     hold="Hold right"
   >
     R U R'
   </CubeInstruction>
   <CubeInstruction
     title="Left insert"
-    src={require("@site/static/img/intuitive-f2l/image-3.png").default}
+    src={useBaseUrl("/img/intuitive-f2l/image-3.png")}
     hold="Hold left"
   >
     L' U' L
@@ -57,21 +58,21 @@ We want to pairs on top but disconnected.
 <Instructions>
   <CubeInstruction
     title="Edge middle layer"
-    src={require("@site/static/img/intuitive-f2l/image-6.png").default}
+    src={useBaseUrl("/img/intuitive-f2l/image-6.png")}
     hold="Hold corner left"
   >
     R U R'
   </CubeInstruction>
   <CubeInstruction
     title="Corner bottom layer"
-    src={require("@site/static/img/intuitive-f2l/image-5.png").default}
+    src={useBaseUrl("/img/intuitive-f2l/image-5.png")}
     hold="Hold edge left"
   >
     R U R'
   </CubeInstruction>
   <CubeInstruction
     title="Both pieces stuck"
-    src={require("@site/static/img/intuitive-f2l/image-4.png").default}
+    src={useBaseUrl("/img/intuitive-f2l/image-4.png")}
     hold="Hold right"
   >
     R U' R'
@@ -83,14 +84,14 @@ We want to pairs on top but disconnected.
 <Instructions>
   <CubeInstruction
     title="Top left"
-    src={require("@site/static/img/intuitive-f2l/image-7.png").default}
+    src={useBaseUrl("/img/intuitive-f2l/image-7.png")}
     hold="Hold right above a non-connected corner"
   >
     R U2 R'
   </CubeInstruction>
   <CubeInstruction
     title="Top right"
-    src={require("@site/static/img/intuitive-f2l/image-9.png").default}
+    src={useBaseUrl("/img/intuitive-f2l/image-9.png")}
     hold="Hold top right"
   >
     R U2 R'
