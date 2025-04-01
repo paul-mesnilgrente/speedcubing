@@ -19,7 +19,7 @@ export default function CubeInstruction({
         width="225"
         height="225"
         alt=""
-        className="mx-auto"
+        className={styles.instructions__image}
       />
       <p>
         <span className={styles.instructions__hold}>{hold}</span><br />

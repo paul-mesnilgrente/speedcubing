@@ -12,6 +12,13 @@
   font-weight: bold;
 }
 
+.instructions__image {
+  display: block;
+  margin-inline: auto;
+  max-width: 100%;
+  height: auto;
+}
+
 .instructions__hold {
   font-weight: bold;
 }
