@@ -1,0 +1,17 @@
+.instructions {
+  display: flex;
+  gap: 1rem;
+}
+
+.instructions__block {
+  text-align: center;
+  flex: 1 1 0%;
+}
+
+.instructions__title {
+  font-weight: bold;
+}
+
+.instructions__hold {
+  font-weight: bold;
+}
