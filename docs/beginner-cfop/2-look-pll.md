@@ -42,6 +42,8 @@ No need to align the corners before starting.
     hold="Hold solved edge in front"
   >
     (R2 U' R') U' R (U R) (U R) U' R
+
+    **Standard alg:**<br />y2 (M2 U M) U2 (M' U M2)
   </CubeInstruction>
   <CubeInstruction
     title="Ub Perm"
@@ -50,6 +52,8 @@ No need to align the corners before starting.
     hold="Hold solved edge in front"
   >
     R' U (R' U') (R' U') R' U (R U R2)
+
+    **Standard alg:**<br />y2 (M2 U' M) U2 (M' U' M2)
   </CubeInstruction>
   <CubeInstruction
     title="H Perm"
@@ -57,7 +61,7 @@ No need to align the corners before starting.
     src={useBaseUrl("/img/2-look-pll/image-4.png")}
     hold="From any side"
   >
-    M2 U' (M2 U2 M2) U' M2
+    (M2 U' M2) U2 (M2 U' M2)
   </CubeInstruction>
   <CubeInstruction
     title="Z Perm"
@@ -66,5 +70,7 @@ No need to align the corners before starting.
     hold="Swapping edges front-right"
   >
     M' U' (M2 U') (M2 U') M' U2 M2
+
+    **Standard alg:**<br />(M2 U) (M2 U) (M' U2) M2 (U2 M')
   </CubeInstruction>
 </Instructions>
