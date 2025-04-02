@@ -28,6 +28,7 @@ Reminder:
 <Instructions>
   <CubeInstruction
     title="Sune"
+    link="https://www.speedcubedb.com/a/3x3/OLL/OLL_27"
     src={useBaseUrl("/img/2-look-oll/image.png")}
     hold="Hold yellow on top, blue front"
   >
@@ -35,6 +36,7 @@ Reminder:
   </CubeInstruction>
   <CubeInstruction
     title="Anti-Sune"
+    link="https://www.speedcubedb.com/a/3x3/OLL/OLL_26"
     src={useBaseUrl("/img/2-look-oll/image-1.png")}
     hold="Hold yellow on top, blue front"
   >
@@ -45,10 +47,20 @@ Reminder:
 ### Crosses
 
 <Instructions>
-  <CubeInstruction title="Cross 1" src={useBaseUrl("/img/2-look-oll/image-2.png")} hold="">
+  <CubeInstruction
+    title="Cross 1"
+    link="https://www.speedcubedb.com/a/3x3/OLL/OLL_21"
+    src={useBaseUrl("/img/2-look-oll/image-2.png")}
+    hold="Yellow on the sides"
+  >
     (R U R' U) (R U R' U) (R U2 R')
   </CubeInstruction>
-  <CubeInstruction title="Cross 2" src={useBaseUrl("/img/2-look-oll/image-3.png")} hold="">
+  <CubeInstruction
+    title="Cross 2"
+    link="https://www.speedcubedb.com/a/3x3/OLL/OLL_22"
+    src={useBaseUrl("/img/2-look-oll/image-3.png")}
+    hold="Just like the image"
+  >
     R U2 (R2 U') (R2 U') R2 U2 R
   </CubeInstruction>
 </Instructions>
@@ -58,16 +70,23 @@ Reminder:
 <Instructions>
   <CubeInstruction
     title="Chameleon"
+    link="https://www.speedcubedb.com/a/3x3/OLL/OLL_24"
     src={useBaseUrl("/img/2-look-oll/image-4.png")}
     hold=""
   >
     (r U R' U') (r' F R F')
   </CubeInstruction>
-  <CubeInstruction title="Kite" src={useBaseUrl("/img/2-look-oll/image-5.png")} hold="">
+  <CubeInstruction
+    title="Kite"
+    link="https://www.speedcubedb.com/a/3x3/OLL/OLL_25"
+    src={useBaseUrl("/img/2-look-oll/image-5.png")}
+    hold=""
+  >
     F' (r U R' U') (r' F R)
   </CubeInstruction>
   <CubeInstruction
     title="Headlights"
+    link="https://www.speedcubedb.com/a/3x3/OLL/OLL_23"
     src={useBaseUrl("/img/2-look-oll/image-6.png")}
     hold=""
   >

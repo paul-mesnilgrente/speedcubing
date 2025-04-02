@@ -19,18 +19,14 @@ Here we'll see 6 algorithms in 2 steps, called a 2 look PLL.
     src={useBaseUrl("/img/2-look-pll/image-1.png")}
     hold="Hold headlights left"
   >
-    (R U R' U') R' F
-    <br />
-    (R2 U' R') U' (R U R' F')
+    (R U R' U') R' F<br />(R2 U' R') U' (R U R' F')
   </CubeInstruction>
   <CubeInstruction
     title="No-Headlights"
     src={useBaseUrl("/img/2-look-pll/image.png")}
     hold="From any side"
   >
-    F (R U' R' U') R U R' F'
-    <br />
-    (R U R' U') R' F R F'
+    F (R U' R' U') R U R' F'<br />(R U R' U') R' F R F'
   </CubeInstruction>
 </Instructions>
 
@@ -41,6 +37,7 @@ No need to align the corners before starting.
 <Instructions>
   <CubeInstruction
     title="Ua Perm"
+    link="https://www.speedcubedb.com/a/3x3/PLL/Ua"
     src={useBaseUrl("/img/2-look-pll/image-2.png")}
     hold="Hold solved edge in front"
   >
@@ -48,6 +45,7 @@ No need to align the corners before starting.
   </CubeInstruction>
   <CubeInstruction
     title="Ub Perm"
+    link="https://www.speedcubedb.com/a/3x3/PLL/Ub"
     src={useBaseUrl("/img/2-look-pll/image-3.png")}
     hold="Hold solved edge in front"
   >
@@ -55,6 +53,7 @@ No need to align the corners before starting.
   </CubeInstruction>
   <CubeInstruction
     title="H Perm"
+    link="https://www.speedcubedb.com/a/3x3/PLL/H"
     src={useBaseUrl("/img/2-look-pll/image-4.png")}
     hold="From any side"
   >
@@ -62,6 +61,7 @@ No need to align the corners before starting.
   </CubeInstruction>
   <CubeInstruction
     title="Z Perm"
+    link="https://www.speedcubedb.com/a/3x3/PLL/Z"
     src={useBaseUrl("/img/2-look-pll/image-5.png")}
     hold="Swapping edges front-right"
   >
