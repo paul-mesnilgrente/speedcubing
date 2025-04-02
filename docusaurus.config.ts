@@ -76,9 +76,9 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: '3x3Sidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: '3x3',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
@@ -95,7 +95,7 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
+              label: '3x3',
               to: '/docs/beginner-cfop/introduction',
             },
           ],
