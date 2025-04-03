@@ -1,0 +1,91 @@
+[data-theme="light"] .p-white {
+  border: 1px solid var(--ifm-color-content);
+}
+.p-white {
+  background-color: #fff;
+  color: #fff;
+}
+.p-yellow {
+  background-color: #eeff00;
+  color: #eeff00;
+}
+.p-blue {
+  background-color: #0400ff;
+  color: #0400ff;
+}
+.p-red {
+  background-color: #ff0000;
+  color: #fc8181;
+}
+.p-green {
+  background-color: #1eff00;
+  color: #1eff00;
+}
+.p-orange {
+  background-color: #ff8c00;
+  color: #ff8c00;
+}
+.p-gray {
+  background-color: #424242;
+  color: #424242;
+}
+.p-transparent {
+  background-color: transparent;
+  color: transparent;
+  border: 0 !important;
+}
+
+.color-selector {
+  display: flex;
+  gap: 1rem;
+}
+
+.color-button {
+  cursor: pointer;
+  border: 0;
+
+  width: 3rem;
+  height: 3rem;
+}
+
+.color-button--action {
+  padding: .5rem;
+}
+
+.color-button--active {
+  border-radius: 50%;
+  box-shadow: 0 0 1.25rem;
+}
+
+.flat-cube {
+  margin: 2rem 0 2rem 0;
+  width: 100%;
+  max-width: 50rem;
+  border: 1px solid var(--ifm-color-content);
+  padding: 1rem;
+
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: .5rem;
+}
+
+.c-face {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 98%;
+  aspect-ratio: 1 / 1;
+  gap: 2px;
+}
+
+.c-piece {
+  cursor: pointer;
+  border: 0;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.c-piece--invisible {
+  border: 0;
+  background-color: transparent;
+}

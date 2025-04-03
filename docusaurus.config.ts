@@ -67,6 +67,11 @@ const config: Config = {
           label: '3x3',
         },
         {
+          to: 'tools',
+          label: 'Tools',
+          position: 'left',
+        },
+        {
           href: 'https://github.com/facebook/docusaurus',
           label: 'GitHub',
           position: 'right',
