@@ -1,3 +1,3 @@
-import CubeDrawer from './CubeDrawer';
+import FlatCubeDrawer3x3 from './FlatCubeDrawer3x3';
 
-export default CubeDrawer
+export default FlatCubeDrawer3x3;

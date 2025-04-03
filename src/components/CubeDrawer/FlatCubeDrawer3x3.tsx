@@ -40,7 +40,7 @@ function CubeFace({ cube, row, handleClick }: { cube: string[][]; row: number; h
   );
 }
 
-export default function CubeDrawer() : ReactNode {
+export default function FlatCubeDrawer3x3() : ReactNode {
   const colors = ['white', 'yellow', 'green', 'red', 'blue', 'orange', 'gray'];
 
   const [activeColor, setActiveColor] = useState(colors[0]);
