@@ -2,12 +2,12 @@
 title: Tools
 description: Tools for speedcubing
 ---
-import CubeDrawer from '../components/CubeDrawer';
+import { FlatCubeDrawer3x3, FaceCubeDrawer3x3 } from '../components/CubeDrawer';
 
-# 3x3 Face Cube drawer
+# 3x3 Face
 
-<CubeDrawer />
+<FaceCubeDrawer3x3 />
 
-# 3x3 Flat Cube drawer
+# 3x3 Flat
 
-<CubeDrawer />
+<FlatCubeDrawer3x3 />

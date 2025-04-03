@@ -1,0 +1,26 @@
+.flat-cube {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: .5rem;
+}
+
+.c-face {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 98%;
+  aspect-ratio: 1 / 1;
+  gap: 2px;
+}
+
+.c-piece {
+  cursor: pointer;
+  border: 0;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.c-piece--invisible {
+  border: 0;
+  background-color: transparent;
+}

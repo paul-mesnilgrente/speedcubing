@@ -1,0 +1,5 @@
+.face-drawer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

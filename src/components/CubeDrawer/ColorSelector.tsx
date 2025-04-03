@@ -1,20 +1,21 @@
 import type { ReactNode } from 'react';
-import styles from './CubeDrawer.module.css';
 import clsx from 'clsx';
+import selectorStyles from './ColorSelector.module.css';
+import styles from './index.module.css';
 
 export default function ColorSelector({onChange, activeColor, colors, onReset, onErase, onDownload}) : ReactNode {
   return (
-    <div className={styles["color-selector"]}>
+    <div className={selectorStyles["color-selector"]}>
       {colors.map((color) => (
         <button
           key={color}
-          className={clsx(styles[`p-${color}`], styles['color-button'], {[styles['color-button--active']]: color === activeColor})}
+          className={clsx(styles[`p-${color}`], selectorStyles['color-button'], {[selectorStyles['color-button--active']]: color === activeColor})}
           onClick={() => onChange(color)}
         ></button>
       ))}
       <button
         aria-label="Reset colors"
-        className={clsx(styles["color-button"], styles["color-button--action"])}
+        className={clsx(selectorStyles["color-button"], selectorStyles["color-button--action"])}
         onClick={onReset}
       >
         <svg fill="currentColor" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +24,7 @@ export default function ColorSelector({onChange, activeColor, colors, onReset, o
       </button>
       <button
         aria-label="Erase all colors"
-        className={clsx(styles["color-button"], styles["color-button--action"])}
+        className={clsx(selectorStyles["color-button"], selectorStyles["color-button--action"])}
         onClick={onErase}
       >
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +33,7 @@ export default function ColorSelector({onChange, activeColor, colors, onReset, o
       </button>
       <button
         aria-label="Download"
-        className={clsx(styles["color-button"], styles["color-button--action"])}
+        className={clsx(selectorStyles["color-button"], selectorStyles["color-button--action"])}
         onClick={onDownload}
       >
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
