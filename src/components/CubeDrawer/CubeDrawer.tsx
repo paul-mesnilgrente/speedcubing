@@ -1,7 +1,8 @@
+import { ReactNode, useState } from 'react';
+import clsx from 'clsx';
 import styles from './CubeDrawer.module.css';
 import ColorSelector from './ColorSelector';
-import { useState } from 'react';
-import clsx from 'clsx';
+import html2canvas from 'html2canvas';
 
 const DEFAULT_CUBE = [
   ['gray', 'gray', 'gray', 'gray', 'white', 'gray', 'gray', 'gray', 'gray'],
@@ -18,7 +19,7 @@ function InvisibleFace() {
       {Array.from({ length: 9 }, (_, i) => (
         <button
           key={i}
-          className={clsx(styles['c-piece'], styles['c-piece--invisible'])}
+          className={clsx(styles.cPiece, styles['c-piece--invisible'])}
         />
       ))}
     </div>
@@ -65,17 +66,36 @@ export default function CubeDrawer() : ReactNode {
     setCube(newCube);
   }
 
+  const handleDownload = () => {
+    const element = document.getElementById('flat-cube');
+    if (!element) return;
+
+    html2canvas(element, { backgroundColor: null }).then(canvas => {
+      const dataURL = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.href = dataURL;
+      link.download = 'flat-cube.png';
+      // Trigger the download by programmatically clicking the link
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }).catch(err => {
+      console.error('Error capturing the element', err);
+    });
+  }
+
   return (
     <>
       <ColorSelector
         onChange={setActiveColor}
         onReset={handleReset}
         onErase={handleErase}
+        onDownload={handleDownload}
         activeColor={activeColor}
         colors={colors}
       />
 
-      <div className={styles['flat-cube']}>
+      <div id="flat-cube" className={styles['flat-cube']}>
         <InvisibleFace />
         <CubeFace cube={cube} row={0} handleClick={handleClick} />
         <InvisibleFace />
@@ -86,7 +106,6 @@ export default function CubeDrawer() : ReactNode {
         <CubeFace cube={cube} row={4} handleClick={handleClick} />
         <InvisibleFace />
         <CubeFace cube={cube} row={1} handleClick={handleClick} />
-
       </div>
     </>
   );

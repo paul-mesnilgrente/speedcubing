@@ -1,7 +1,8 @@
+import type { ReactNode } from 'react';
 import styles from './CubeDrawer.module.css';
 import clsx from 'clsx';
 
-export default function ColorSelector({onChange, activeColor, colors, onReset, onErase}) : ReactNode {
+export default function ColorSelector({onChange, activeColor, colors, onReset, onErase, onDownload}) : ReactNode {
   return (
     <div className={styles["color-selector"]}>
       {colors.map((color) => (
@@ -12,6 +13,7 @@ export default function ColorSelector({onChange, activeColor, colors, onReset, o
         ></button>
       ))}
       <button
+        aria-label="Reset colors"
         className={clsx(styles["color-button"], styles["color-button--action"])}
         onClick={onReset}
       >
@@ -20,11 +22,22 @@ export default function ColorSelector({onChange, activeColor, colors, onReset, o
         </svg>
       </button>
       <button
+        aria-label="Erase all colors"
         className={clsx(styles["color-button"], styles["color-button--action"])}
         onClick={onErase}
       >
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fillRule="evenodd" clipRule="evenodd" d="M15.0722 3.9967L20.7508 9.83395L17.0544 13.5304L13.0758 17.5H21.0041V19H7.93503L4.00195 15.0669L15.0722 3.9967ZM10.952 17.5L15.4628 12.9994L11.8268 9.3634L6.12327 15.0669L8.55635 17.5H10.952Z" />
+        </svg>
+      </button>
+      <button
+        aria-label="Download"
+        className={clsx(styles["color-button"], styles["color-button--action"])}
+        onClick={onDownload}
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fillRule="evenodd" clipRule="evenodd" d="M23 22C23 22.5523 22.5523 23 22 23H2C1.44772 23 1 22.5523 1 22C1 21.4477 1.44772 21 2 21H22C22.5523 21 23 21.4477 23 22Z" fill="currentcolor"/>
+          <path fillRule="evenodd" clipRule="evenodd" d="M13.3099 18.6881C12.5581 19.3396 11.4419 19.3396 10.6901 18.6881L5.87088 14.5114C4.47179 13.2988 5.32933 11 7.18074 11L9.00001 11V3C9.00001 1.89543 9.89544 1 11 1L13 1C14.1046 1 15 1.89543 15 3L15 11H16.8193C18.6707 11 19.5282 13.2988 18.1291 14.5114L13.3099 18.6881ZM11.3451 16.6091C11.7209 16.9348 12.2791 16.9348 12.6549 16.6091L16.8193 13H14.5C13.6716 13 13 12.3284 13 11.5V3L11 3V11.5C11 12.3284 10.3284 13 9.50001 13L7.18074 13L11.3451 16.6091Z" fill="currentcolor"/>
         </svg>
       </button>
     </div>
