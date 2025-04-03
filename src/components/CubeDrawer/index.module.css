@@ -3,7 +3,7 @@
   width: 100%;
   max-width: 50rem;
   border: 1px solid var(--ifm-color-content);
-  padding: 1rem;
+  padding: 2%;
 }
 
 [data-theme="light"] .p-white {
