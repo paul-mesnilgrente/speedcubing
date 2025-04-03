@@ -1,6 +1,7 @@
 {
   "label": "Beginner CFOP",
   "position": 2,
+  "collapsed": false,
   "link": {
     "type": "generated-index",
     "description": "A beginner CFOP guide for 3x3 Rubik's Cube."
