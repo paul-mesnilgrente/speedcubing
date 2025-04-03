@@ -6,20 +6,60 @@ import styles from './index.module.css';
 import faceStyles from './FaceCubeDrawer3x3.module.css';
 
 const DEFAULT_CUBE = [
-  ['gray', 'gray', 'gray', 'gray', 'white', 'gray', 'gray', 'gray', 'gray'],
+  ['gray', 'gray', 'gray'],
+  ['gray', 'gray', 'gray', 'gray', 'gray'],
+  ['gray', 'gray', 'yellow', 'gray', 'gray'],
+  ['gray', 'gray', 'gray', 'gray', 'gray'],
+  ['gray', 'gray', 'gray'],
 ];
 
-function CubeFace({ cube, row, handleClick }: { cube: string[][]; row: number; handleClick: (row: number, col: number) => void }) {
+function CubeFace({ cube, handleClick }: { cube: string[][]; row: number; handleClick: (row: number, col: number) => void }) {
   return (
-    <div className={styles['c-face']}>
-      {cube[row].map((color, index) => (
+    <>
+      <div></div>
+      {cube[0].map((color, index) => (
         <button
           key={index}
-          onClick={() => handleClick(row, index)}
-          className={clsx(styles['c-piece'], styles[`p-${color}`])}
+          onClick={() => handleClick(0, index)}
+          className={clsx(styles['c-piece'], styles['c-piece--side'], styles[`p-${color}`])}
         ></button>
       ))}
-    </div>
+      <div></div>
+
+      {cube[1].map((color, index) => (
+        <button
+          key={index}
+          onClick={() => handleClick(1, index)}
+          className={clsx(styles['c-piece'], styles['c-piece--side'], styles[`p-${color}`])}
+        ></button>
+      ))}
+
+      {cube[2].map((color, index) => (
+        <button
+          key={index}
+          onClick={() => handleClick(2, index)}
+          className={clsx(styles['c-piece'], styles['c-piece--side'], styles[`p-${color}`])}
+        ></button>
+      ))}
+
+      {cube[3].map((color, index) => (
+        <button
+          key={index}
+          onClick={() => handleClick(3, index)}
+          className={clsx(styles['c-piece'], styles['c-piece--side'], styles[`p-${color}`])}
+        ></button>
+      ))}
+
+      <div></div>
+      {cube[4].map((color, index) => (
+        <button
+          key={index}
+          onClick={() => handleClick(4, index)}
+          className={clsx(styles['c-piece'], styles['c-piece--side'], styles[`p-${color}`])}
+        ></button>
+      ))}
+      <div></div>
+    </>
   );
 }
 
@@ -50,14 +90,14 @@ export default function FaceCubeDrawer3x3() : ReactNode {
   }
 
   const handleDownload = () => {
-    const element = document.getElementById('flat-cube');
+    const element = document.getElementById('face-cube');
     if (!element) return;
 
     html2canvas(element, { backgroundColor: null }).then(canvas => {
       const dataURL = canvas.toDataURL('image/png');
       const link = document.createElement('a');
       link.href = dataURL;
-      link.download = 'flat-cube.png';
+      link.download = 'face-cube.png';
       // Trigger the download by programmatically clicking the link
       document.body.appendChild(link);
       link.click();
@@ -79,7 +119,7 @@ export default function FaceCubeDrawer3x3() : ReactNode {
       />
 
       <div id="face-cube" className={clsx(styles['drawing-zone'], faceStyles['face-cube'])}>
-        <CubeFace cube={cube} row={0} handleClick={handleClick} />
+        <CubeFace cube={cube} handleClick={handleClick} />
       </div>
     </>
   );

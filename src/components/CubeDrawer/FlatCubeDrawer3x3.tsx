@@ -14,27 +14,14 @@ const DEFAULT_CUBE = [
   ['gray', 'gray', 'gray', 'gray', 'orange', 'gray', 'gray', 'gray', 'gray'],
 ];
 
-function InvisibleFace() {
-  return (
-    <div className={flatStyles['c-face']}>
-      {Array.from({ length: 9 }, (_, i) => (
-        <button
-          key={i}
-          className={clsx(flatStyles.cPiece, flatStyles['c-piece--invisible'])}
-        />
-      ))}
-    </div>
-  );
-}
-
 function CubeFace({ cube, row, handleClick }: { cube: string[][]; row: number; handleClick: (row: number, col: number) => void }) {
   return (
-    <div className={flatStyles['c-face']}>
+    <div className={styles['c-face']}>
       {cube[row].map((color, index) => (
         <button
           key={index}
           onClick={() => handleClick(row, index)}
-          className={clsx(flatStyles['c-piece'], styles[`p-${color}`])}
+          className={clsx(styles['c-piece'], styles[`p-${color}`])}
         ></button>
       ))}
     </div>
@@ -97,15 +84,15 @@ export default function FlatCubeDrawer3x3() : ReactNode {
       />
 
       <div id="flat-cube" className={clsx(styles['drawing-zone'], flatStyles['flat-cube'])}>
-        <InvisibleFace />
+        <div></div>
         <CubeFace cube={cube} row={0} handleClick={handleClick} />
-        <InvisibleFace />
-        <InvisibleFace />
+        <div></div>
+        <div></div>
         <CubeFace cube={cube} row={5} handleClick={handleClick} />
         <CubeFace cube={cube} row={2} handleClick={handleClick} />
         <CubeFace cube={cube} row={3} handleClick={handleClick} />
         <CubeFace cube={cube} row={4} handleClick={handleClick} />
-        <InvisibleFace />
+        <div></div>
         <CubeFace cube={cube} row={1} handleClick={handleClick} />
       </div>
     </>

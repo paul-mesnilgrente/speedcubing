@@ -1,5 +1,12 @@
-.face-drawer {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.face-cube {
+  max-width: 25rem;
+
+  display: grid;
+  grid-template-columns: 2fr 5fr 5fr 5fr 2fr;
+  grid-template-rows: 2fr 5fr 5fr 5fr 2fr;
+  /* 5 columns, subtracting 4 gaps of 2% each (total 8%) from 100% */
+  /* grid-template-columns: repeat(5, calc((100% - 8%) / 5));
+  grid-template-columns: repeat(5, calc((100% - 8%) / 5)); */
+  gap: 2%;
+  aspect-ratio: 1 / 1;
 }

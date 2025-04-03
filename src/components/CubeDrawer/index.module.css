@@ -1,7 +1,6 @@
 .drawing-zone {
   margin: 2rem 0 2rem 0;
   width: 100%;
-  max-width: 50rem;
   border: 1px solid var(--ifm-color-content);
   padding: 2%;
 }
@@ -42,4 +41,25 @@
   background-color: transparent;
   color: transparent;
   border: 0 !important;
+}
+
+.c-face {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  gap: 2px;
+}
+
+.c-piece {
+  cursor: pointer;
+  border: 0;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.c-piece--side {
+  height: 100%;
+  aspect-ratio: unset;
 }

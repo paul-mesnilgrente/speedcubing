@@ -1,29 +1,10 @@
 .flat-cube {
+  max-width: 50rem;
+
   display: grid;
   /* 4 columns, subtracting 3 gaps of 2% each (total 6%) from 100% */
   grid-template-columns: repeat(4, calc((100% - 6%) / 4));
   grid-template-rows: repeat(3, calc((100% - 4%) / 3));
   gap: 2%;
   aspect-ratio: 4 / 3;
-}
-
-.c-face {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  gap: 2px;
-}
-
-.c-piece {
-  cursor: pointer;
-  border: 0;
-
-  width: 100%;
-  aspect-ratio: 1 / 1;
-}
-
-.c-piece--invisible {
-  border: 0;
-  background-color: transparent;
 }
