@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react';
 import clsx from 'clsx';
-import ColorSelector from './ColorSelector';
+import DrawingTools from './DrawingTools';
 import html2canvas from 'html2canvas';
 import styles from './index.module.css';
 import faceStyles from './FaceCubeDrawer3x3.module.css';
@@ -109,7 +109,7 @@ export default function FaceCubeDrawer3x3() : ReactNode {
 
   return (
     <>
-      <ColorSelector
+      <DrawingTools
         onChange={setActiveColor}
         onReset={handleReset}
         onErase={handleErase}

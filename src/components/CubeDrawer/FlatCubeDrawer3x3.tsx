@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import html2canvas from 'html2canvas';
 import styles from './index.module.css';
 import flatStyles from './FlatCubeDrawer3x3.module.css';
-import ColorSelector from './ColorSelector';
+import DrawingTools from './DrawingTools';
 import Cube from './Cube';
 
 function CubeFace({ cube, face, handleClick }: { cube: Cube; face: string; handleClick: (row: string, index: number) => void }) {
@@ -66,7 +66,7 @@ export default function FlatCubeDrawer3x3() : ReactNode {
 
   return (
     <>
-      <ColorSelector
+      <DrawingTools
         activeColor={activeColor}
         colors={colors}
         onChange={setActiveColor}

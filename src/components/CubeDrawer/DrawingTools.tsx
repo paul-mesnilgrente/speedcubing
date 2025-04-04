@@ -1,21 +1,21 @@
 import type { ReactNode } from 'react';
 import clsx from 'clsx';
-import selectorStyles from './ColorSelector.module.css';
+import drawingStyles from './DrawingTools.module.css';
 import styles from './index.module.css';
 
-export default function ColorSelector({activeColor, colors, onChange, onInputChange, inputValue, onReset, onErase, onDownload, }) : ReactNode {
+export default function DrawingTools({activeColor, colors, onChange, onInputChange, inputValue, onReset, onErase, onDownload, }) : ReactNode {
   return (
-    <div className={selectorStyles["color-selector"]}>
+    <div className={drawingStyles["drawing-tools"]}>
       {colors.map((color) => (
         <button
           key={color}
-          className={clsx(styles[`p-${color}`], selectorStyles['color-button'], {[selectorStyles['color-button--active']]: color === activeColor})}
+          className={clsx(styles[`p-${color}`], drawingStyles['color-button'], {[drawingStyles['color-button--active']]: color === activeColor})}
           onClick={() => onChange(color)}
         ></button>
       ))}
       <button
         aria-label="Reset colors"
-        className={clsx(selectorStyles["color-button"], selectorStyles["color-button--action"])}
+        className={clsx(drawingStyles["color-button"], drawingStyles["color-button--action"])}
         onClick={onReset}
       >
         <svg fill="currentColor" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +24,7 @@ export default function ColorSelector({activeColor, colors, onChange, onInputCha
       </button>
       <button
         aria-label="Erase all colors"
-        className={clsx(selectorStyles["color-button"], selectorStyles["color-button--action"])}
+        className={clsx(drawingStyles["color-button"], drawingStyles["color-button--action"])}
         onClick={onErase}
       >
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@ export default function ColorSelector({activeColor, colors, onChange, onInputCha
       </button>
       <button
         aria-label="Download"
-        className={clsx(selectorStyles["color-button"], selectorStyles["color-button--action"])}
+        className={clsx(drawingStyles["color-button"], drawingStyles["color-button--action"])}
         onClick={onDownload}
       >
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
