@@ -4,89 +4,83 @@ import DrawingTools from './DrawingTools';
 import html2canvas from 'html2canvas';
 import styles from './index.module.css';
 import faceStyles from './FaceCubeDrawer3x3.module.css';
+import Colors3x3 from './Colors3x3';
+import Cube from './Cube';
 
-const DEFAULT_CUBE = [
-  ['gray', 'gray', 'gray'],
-  ['gray', 'gray', 'gray', 'gray', 'gray'],
-  ['gray', 'gray', 'yellow', 'gray', 'gray'],
-  ['gray', 'gray', 'gray', 'gray', 'gray'],
-  ['gray', 'gray', 'gray'],
-];
+function CubeSquare({cube, face, index, handleClick}: { cube: Cube; face: string; index: number; handleClick: (face: string, index: number) => void }) {
+  return (
+    <button
+      key={index}
+      onClick={() => handleClick(face, index)}
+      className={clsx(styles['c-piece'], styles['c-piece--side'], styles[`p-${cube.getSquare(face, index)}`])}
+    ></button>
+  );
+}
 
-function CubeFace({ cube, handleClick }: { cube: string[][]; row: number; handleClick: (row: number, col: number) => void }) {
+function CubeFace({ cube, handleClick }: { cube: Cube; handleClick: (face: string, index: number) => void }) {
   return (
     <>
+      {/* line 1 */}
       <div></div>
-      {cube[0].map((color, index) => (
-        <button
-          key={index}
-          onClick={() => handleClick(0, index)}
-          className={clsx(styles['c-piece'], styles['c-piece--side'], styles[`p-${color}`])}
-        ></button>
-      ))}
+      <CubeSquare cube={cube} face="back" index={2} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="back" index={1} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="back" index={0} handleClick={handleClick} />
       <div></div>
 
-      {cube[1].map((color, index) => (
-        <button
-          key={index}
-          onClick={() => handleClick(1, index)}
-          className={clsx(styles['c-piece'], styles['c-piece--side'], styles[`p-${color}`])}
-        ></button>
-      ))}
+      {/* line 2 */}
+      <CubeSquare cube={cube} face="left"  index={0} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="up"    index={0} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="up"    index={1} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="up"    index={2} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="right" index={0} handleClick={handleClick} />
 
-      {cube[2].map((color, index) => (
-        <button
-          key={index}
-          onClick={() => handleClick(2, index)}
-          className={clsx(styles['c-piece'], styles['c-piece--side'], styles[`p-${color}`])}
-        ></button>
-      ))}
+      {/* line 3 */}
+      <CubeSquare cube={cube} face="left"  index={1} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="up"    index={3} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="up"    index={4} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="up"    index={5} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="right" index={1} handleClick={handleClick} />
 
-      {cube[3].map((color, index) => (
-        <button
-          key={index}
-          onClick={() => handleClick(3, index)}
-          className={clsx(styles['c-piece'], styles['c-piece--side'], styles[`p-${color}`])}
-        ></button>
-      ))}
+      {/* line 4 */}
+      <CubeSquare cube={cube} face="left"  index={2} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="up"    index={6} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="up"    index={7} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="up"    index={8} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="right" index={2} handleClick={handleClick} />
 
+      {/* line 5 */}
       <div></div>
-      {cube[4].map((color, index) => (
-        <button
-          key={index}
-          onClick={() => handleClick(4, index)}
-          className={clsx(styles['c-piece'], styles['c-piece--side'], styles[`p-${color}`])}
-        ></button>
-      ))}
+      <CubeSquare cube={cube} face="front"   index={0} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="front"   index={1} handleClick={handleClick} />
+      <CubeSquare cube={cube} face="front"   index={2} handleClick={handleClick} />
       <div></div>
     </>
   );
 }
 
 export default function FaceCubeDrawer3x3() : ReactNode {
-  const colors = ['white', 'yellow', 'green', 'red', 'blue', 'orange', 'gray'];
+  const [activeColor, setActiveColor] = useState(Colors3x3.colors[0]);
+  const defaultCube = new Cube('GGGGyGGGG GGG GGG GGG GGG');
+  const [cube, setCube] = useState(defaultCube.clone());
 
-  const [activeColor, setActiveColor] = useState(colors[0]);
-  const [cube, setCube] = useState(DEFAULT_CUBE.map(row => [...row]));
+  const handleClick = (face: string, index: number) => {
+    const newCube = cube.clone();
+    newCube.setSquare(face, index, activeColor);
+    setCube(newCube)
+  };
 
-  const handleClick = (row: number, col: number) => {
-    const newCube = [...cube];
-    newCube[row][col] = activeColor;
-    setCube(newCube);
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    const newCube = new Cube(value);
+    setCube(newCube.clone());
   };
 
   const handleReset = () => {
-    setCube(DEFAULT_CUBE.map(row => [...row]));
+    setCube(defaultCube.clone());
   };
 
   const handleErase = () => {
-    const newCube = [...cube];
-    for (let i = 0; i < newCube.length; i++) {
-      for (let j = 0; j < newCube[i].length; j++) {
-        newCube[i][j] = 'gray';
-      }
-    }
-    setCube(newCube);
+    setCube(new Cube('GGGGGGGGG GGG GGG GGG GGG'));
   }
 
   const handleDownload = () => {
@@ -110,12 +104,14 @@ export default function FaceCubeDrawer3x3() : ReactNode {
   return (
     <>
       <DrawingTools
+        activeColor={activeColor}
+        colors={Colors3x3.colors}
         onChange={setActiveColor}
+        onInputChange={handleInputChange}
+        inputValue={cube.getTopViewWithSidesDescription()}
         onReset={handleReset}
         onErase={handleErase}
         onDownload={handleDownload}
-        activeColor={activeColor}
-        colors={colors}
       />
 
       <div id="face-cube" className={clsx(styles['drawing-zone'], faceStyles['face-cube'])}>

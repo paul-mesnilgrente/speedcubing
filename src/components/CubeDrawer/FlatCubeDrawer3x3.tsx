@@ -5,6 +5,7 @@ import styles from './index.module.css';
 import flatStyles from './FlatCubeDrawer3x3.module.css';
 import DrawingTools from './DrawingTools';
 import Cube from './Cube';
+import Colors3x3 from './Colors3x3';
 
 function CubeFace({ cube, face, handleClick }: { cube: Cube; face: string; handleClick: (row: string, index: number) => void }) {
   return (
@@ -21,9 +22,8 @@ function CubeFace({ cube, face, handleClick }: { cube: Cube; face: string; handl
 }
 
 export default function FlatCubeDrawer3x3() : ReactNode {
-  const colors = ['white', 'yellow', 'green', 'red', 'blue', 'orange', 'gray'];
   const defaultCube = new Cube('GGGGwGGGG GGGGyGGGG GGGGgGGGG GGGGrGGGG GGGGbGGGG GGGGoGGGG')
-  const [activeColor, setActiveColor] = useState(colors[0]);
+  const [activeColor, setActiveColor] = useState(Colors3x3.colors[0]);
   const [cube, setCube] = useState(defaultCube.clone());
 
   const handleClick = (face: string, index: number) => {
@@ -68,10 +68,10 @@ export default function FlatCubeDrawer3x3() : ReactNode {
     <>
       <DrawingTools
         activeColor={activeColor}
-        colors={colors}
+        colors={Colors3x3.colors}
         onChange={setActiveColor}
         onInputChange={handleInputChange}
-        inputValue={cube.getDescription()}
+        inputValue={cube.getFullDescription()}
         onReset={handleReset}
         onErase={handleErase}
         onDownload={handleDownload}

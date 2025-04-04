@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import drawingStyles from './DrawingTools.module.css';
 import clsx from 'clsx';
 
@@ -6,6 +6,10 @@ export default function DescriptionInput({value, onChange}) : ReactNode {
   const [inputValue, setInputValue] = useState(value);
   const [errorMessages, setErrorMessages] = useState([]);
   const [copyAnimation, setCopyAnimation] = useState(false);
+
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(inputValue)
