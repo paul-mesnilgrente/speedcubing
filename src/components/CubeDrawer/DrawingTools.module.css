@@ -21,9 +21,11 @@
   box-shadow: 0 0 1.25rem;
 }
 
+.drawing-tools__description {
+  margin: 1rem 0 1rem 0;
+}
+
 .drawing-tools__input-container {
-  flex-basis: 100%;
-  max-width: 100%;
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -32,4 +34,19 @@
 .drawing-tools__input {
   height: 3rem;
   width: 35rem;
+}
+
+.drawing-tools__input--error {
+  border: 1px solid var(--ifm-color-danger-darkest);
+}
+
+.drawing-tools__input--error:focus {
+  box-shadow: 0 0 0.5rem var(--ifm-color-danger-darkest);
+  outline: none;
+}
+
+.drawing-tools__errors {
+  color: var(--ifm-color-danger-darkest);
+  margin-top: 0.5rem;
+  padding-left: 1rem;
 }
