@@ -20,3 +20,16 @@
   border-radius: 50%;
   box-shadow: 0 0 1.25rem;
 }
+
+.drawing-tools__input-container {
+  flex-basis: 100%;
+  max-width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.drawing-tools__input {
+  height: 3rem;
+  width: 35rem;
+}
