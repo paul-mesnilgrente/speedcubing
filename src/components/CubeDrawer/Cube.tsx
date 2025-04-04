@@ -41,7 +41,7 @@ export default class Cube {
       this.right,
       this.back,
       this.left,
-    ].join('');
+    ].join(' ');
   }
 
   public clone(): Cube {
