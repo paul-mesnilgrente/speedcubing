@@ -1,26 +1,18 @@
 import { ReactNode, useState } from 'react';
 import clsx from 'clsx';
+import html2canvas from 'html2canvas';
 import styles from './index.module.css';
 import flatStyles from './FlatCubeDrawer3x3.module.css';
 import ColorSelector from './ColorSelector';
-import html2canvas from 'html2canvas';
+import Cube from './Cube';
 
-const DEFAULT_CUBE = [
-  ['gray', 'gray', 'gray', 'gray', 'white', 'gray', 'gray', 'gray', 'gray'],
-  ['gray', 'gray', 'gray', 'gray', 'yellow', 'gray', 'gray', 'gray', 'gray'],
-  ['gray', 'gray', 'gray', 'gray', 'green', 'gray', 'gray', 'gray', 'gray'],
-  ['gray', 'gray', 'gray', 'gray', 'red', 'gray', 'gray', 'gray', 'gray'],
-  ['gray', 'gray', 'gray', 'gray', 'blue', 'gray', 'gray', 'gray', 'gray'],
-  ['gray', 'gray', 'gray', 'gray', 'orange', 'gray', 'gray', 'gray', 'gray'],
-];
-
-function CubeFace({ cube, row, handleClick }: { cube: string[][]; row: number; handleClick: (row: number, col: number) => void }) {
+function CubeFace({ cube, face, handleClick }: { cube: Cube; face: string; handleClick: (row: string, index: number) => void }) {
   return (
     <div className={styles['c-face']}>
-      {cube[row].map((color, index) => (
+      {cube.faceColors(face).map((color, index) => (
         <button
           key={index}
-          onClick={() => handleClick(row, index)}
+          onClick={() => handleClick(face, index)}
           className={clsx(styles['c-piece'], styles[`p-${color}`])}
         ></button>
       ))}
@@ -30,28 +22,28 @@ function CubeFace({ cube, row, handleClick }: { cube: string[][]; row: number; h
 
 export default function FlatCubeDrawer3x3() : ReactNode {
   const colors = ['white', 'yellow', 'green', 'red', 'blue', 'orange', 'gray'];
-
+  const defaultCube = new Cube('GGGGwGGGG GGGGyGGGG GGGGgGGGG GGGGrGGGG GGGGbGGGG GGGGoGGGG')
   const [activeColor, setActiveColor] = useState(colors[0]);
-  const [cube, setCube] = useState(DEFAULT_CUBE.map(row => [...row]));
+  const [cube, setCube] = useState(defaultCube.clone());
 
-  const handleClick = (row: number, col: number) => {
-    const newCube = [...cube];
-    newCube[row][col] = activeColor;
-    setCube(newCube);
+  const handleClick = (face: string, index: number) => {
+    const newCube = cube.clone();
+    newCube.setSquare(face, index, activeColor);
+    setCube(newCube)
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    const newCube = new Cube(value);
+    setCube(newCube.clone());
   };
 
   const handleReset = () => {
-    setCube(DEFAULT_CUBE.map(row => [...row]));
+    setCube(defaultCube.clone());
   };
 
   const handleErase = () => {
-    const newCube = [...cube];
-    for (let i = 0; i < newCube.length; i++) {
-      for (let j = 0; j < newCube[i].length; j++) {
-        newCube[i][j] = 'gray';
-      }
-    }
-    setCube(newCube);
+    setCube(new Cube('GGGGGGGGG GGGGGGGGG GGGGGGGGG GGGGGGGGG GGGGGGGGG GGGGGGGGG'));
   }
 
   const handleDownload = () => {
@@ -75,25 +67,27 @@ export default function FlatCubeDrawer3x3() : ReactNode {
   return (
     <>
       <ColorSelector
+        activeColor={activeColor}
+        colors={colors}
         onChange={setActiveColor}
+        onInputChange={handleInputChange}
+        inputValue={cube.getDescription()}
         onReset={handleReset}
         onErase={handleErase}
         onDownload={handleDownload}
-        activeColor={activeColor}
-        colors={colors}
       />
 
       <div id="flat-cube" className={clsx(styles['drawing-zone'], flatStyles['flat-cube'])}>
         <div></div>
-        <CubeFace cube={cube} row={0} handleClick={handleClick} />
+        <CubeFace cube={cube} face="up" handleClick={handleClick} />
         <div></div>
         <div></div>
-        <CubeFace cube={cube} row={5} handleClick={handleClick} />
-        <CubeFace cube={cube} row={2} handleClick={handleClick} />
-        <CubeFace cube={cube} row={3} handleClick={handleClick} />
-        <CubeFace cube={cube} row={4} handleClick={handleClick} />
+        <CubeFace cube={cube} face="left" handleClick={handleClick} />
+        <CubeFace cube={cube} face="front" handleClick={handleClick} />
+        <CubeFace cube={cube} face="right" handleClick={handleClick} />
+        <CubeFace cube={cube} face="back" handleClick={handleClick} />
         <div></div>
-        <CubeFace cube={cube} row={1} handleClick={handleClick} />
+        <CubeFace cube={cube} face="down" handleClick={handleClick} />
       </div>
     </>
   );
