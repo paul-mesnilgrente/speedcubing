@@ -53,7 +53,7 @@ Reminder:
     src={useBaseUrl("/img/2-look-oll/image-2.png")}
     hold="Yellow on the sides"
   >
-    (R U R' U) (R U R' U) (R U2 R')
+    (R U R' U) (R U' R' U) (R U2 R')
   </CubeInstruction>
   <CubeInstruction
     title="Cross 2"
