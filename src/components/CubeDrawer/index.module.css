@@ -56,10 +56,5 @@
   border: 0;
 
   width: 100%;
-  aspect-ratio: 1 / 1;
-}
-
-.c-piece--side {
   height: 100%;
-  aspect-ratio: unset;
 }

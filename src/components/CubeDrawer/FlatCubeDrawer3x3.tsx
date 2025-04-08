@@ -1,68 +1,47 @@
-import { ReactNode, useState } from 'react';
+
+import { ReactNode } from 'react';
 import clsx from 'clsx';
 import html2canvas from 'html2canvas';
 import styles from './index.module.css';
 import flatStyles from './FlatCubeDrawer3x3.module.css';
 import DrawingTools from './DrawingTools';
 import Cube from './Cube';
+import CubeSquare from './CubeSquare';
 import Colors3x3 from './Colors3x3';
+import { useCubeDrawer } from '../../hooks/useCubeDrawer';
 
-function CubeFace({ cube, face, handleClick }: { cube: Cube; face: string; handleClick: (row: string, index: number) => void }) {
+function CubeFace({ cube, face, handleClick }: { cube: Cube; face: string; handleClick: (face: string, index: number) => void }) {
   return (
     <div className={styles['c-face']}>
-      {cube.faceColors(face).map((color, index) => (
-        <button
+      {Array.from({ length: 9 }).map((_, index) => (
+        <CubeSquare
           key={index}
-          onClick={() => handleClick(face, index)}
-          className={clsx(styles['c-piece'], styles[`p-${color}`])}
-        ></button>
+          cube={cube}
+          face={face}
+          index={index}
+          onClick={handleClick}
+        />
       ))}
     </div>
   );
 }
 
-export default function FlatCubeDrawer3x3() : ReactNode {
-  const defaultCube = new Cube('GGGGwGGGG GGGGyGGGG GGGGgGGGG GGGGrGGGG GGGGbGGGG GGGGoGGGG')
-  const [activeColor, setActiveColor] = useState(Colors3x3.colors[0]);
-  const [cube, setCube] = useState(defaultCube.clone());
-
-  const handleClick = (face: string, index: number) => {
-    const newCube = cube.clone();
-    newCube.setSquare(face, index, activeColor);
-    setCube(newCube)
-  };
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    const newCube = new Cube(value);
-    setCube(newCube.clone());
-  };
-
-  const handleReset = () => {
-    setCube(defaultCube.clone());
-  };
-
-  const handleErase = () => {
-    setCube(new Cube('GGGGGGGGG GGGGGGGGG GGGGGGGGG GGGGGGGGG GGGGGGGGG GGGGGGGGG'));
-  }
-
-  const handleDownload = () => {
-    const element = document.getElementById('flat-cube');
-    if (!element) return;
-
-    html2canvas(element, { backgroundColor: null }).then(canvas => {
-      const dataURL = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.href = dataURL;
-      link.download = 'flat-cube.png';
-      // Trigger the download by programmatically clicking the link
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }).catch(err => {
-      console.error('Error capturing the element', err);
-    });
-  }
+export default function FlatCubeDrawer3x3(): ReactNode {
+  const {
+    activeColor,
+    setActiveColor,
+    cube,
+    handleClick,
+    handleInputChange,
+    handleReset,
+    handleErase,
+    handleDownload,
+    inputValue,
+  } = useCubeDrawer({
+    defaultCubeString: 'GGGGwGGGG GGGGyGGGG GGGGgGGGG GGGGrGGGG GGGGbGGGG GGGGoGGGG', // adjust as needed
+    eraseCubeString: 'GGGGGGGGG GGGGGGGGG GGGGGGGGG GGGGGGGGG GGGGGGGGG GGGGGGGGG',
+    inputValueGetter: (cube) => cube.getFullDescription(),
+  });
 
   return (
     <>
@@ -71,10 +50,10 @@ export default function FlatCubeDrawer3x3() : ReactNode {
         colors={Colors3x3.colors}
         onChange={setActiveColor}
         onInputChange={handleInputChange}
-        inputValue={cube.getFullDescription()}
+        inputValue={inputValue}
         onReset={handleReset}
         onErase={handleErase}
-        onDownload={handleDownload}
+        onDownload={() => handleDownload('flat-cube', 'flat-cube.png')}
       />
 
       <div id="flat-cube" className={clsx(styles['drawing-zone'], flatStyles['flat-cube'])}>

@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Speedcubing',
-  tagline: 'Rubik\' cubes are cool',
+  tagline: "Rubik's cubes are cool",
   favicon: 'img/favicons/favicon.ico',
 
   // Set the production url of your site here
