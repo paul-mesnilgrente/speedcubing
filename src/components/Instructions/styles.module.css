@@ -1,11 +1,13 @@
 .instructions {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .instructions__block {
   text-align: center;
   flex: 1 1 0%;
+  min-width: 8rem;
 }
 
 .instructions__title {
