@@ -4,14 +4,19 @@
   flex-wrap: wrap;
 }
 
-.instructions__block {
+.instructions__card {
+  background-color: var(--ifm-card-background-color);
+  border-radius: var(--ifm-card-border-radius);
+  box-shadow: var(--ifm-card-box-shadow);
   text-align: center;
   flex: 1 1 0%;
   min-width: 8rem;
 }
 
-.instructions__title {
+.instructions__header {
   font-weight: bold;
+  margin: 0;
+  padding: .5rem;
 }
 
 .instructions__image {
@@ -19,6 +24,19 @@
   margin-inline: auto;
   max-width: 100%;
   height: auto;
+}
+
+.instructions__body {
+  padding: .5rem;
+
+  & > p {
+    margin: 0;
+  }
+}
+
+.instructions__footer {
+  margin: 0;
+  padding: .5rem;
 }
 
 .instructions__hold {

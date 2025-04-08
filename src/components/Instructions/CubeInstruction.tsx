@@ -18,21 +18,25 @@ export default function CubeInstruction({
   const titleProps = link ? { href: link, target: '_blank', rel: 'noopener noreferrer' } : {};
 
   return (
-    <div className={styles.instructions__block}>
-      <p className={styles.instructions__title}>
+    <div className={styles.instructions__card}>
+      <p className={styles.instructions__header}>
         <TitleTag {...titleProps}>{title}</TitleTag>
       </p>
-      <img
-        src={src}
-        width="225"
-        height="225"
-        alt=""
-        className={styles.instructions__image}
-      />
-      <p>
-        <span className={styles.instructions__hold}>{hold}</span><br />
+      <div className={styles.instructions__image}>
+        <img
+          src={src}
+          width="225"
+          height="225"
+          alt=""
+          className={styles.instructions__image}
+        />
+      </div>
+      <div className={styles.instructions__body}>
+        {children}
+      </div>
+      <p className={styles.instructions__footer}>
+        <span className={styles.instructions__hold}>{hold}</span>
       </p>
-      {children}
     </div>
   );
 }
