@@ -67,7 +67,7 @@ export default class Cube {
     if (this[face]) {
       const colors = this[face].split('');
       if (index >= 0 && index < colors.length) {
-        colors[index] = color.charAt(0); // Use the first character of the color
+        colors[index] = Colors3x3.mapColorToLetter(color); // Use the first character of the color
         this[face] = colors.join('');
       } else {
         throw new Error(`Index ${index} is out of bounds for face ${face}.`);

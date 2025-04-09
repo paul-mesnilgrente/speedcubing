@@ -23,8 +23,31 @@ export default class Colors3x3 {
         return 'blue';
       case 'o':
         return 'orange';
+      case 'G':
+        return 'gray';
       default:
-        return 'gray'; // Default color for unknown characters
+        throw new Error(`Unknown color letter: ${letter}`);
+    }
+  }
+
+  public static mapColorToLetter(color: string): string {
+    switch (color) {
+      case 'white':
+        return 'w';
+      case 'yellow':
+        return 'y';
+      case 'green':
+        return 'g';
+      case 'red':
+        return 'r';
+      case 'blue':
+        return 'b';
+      case 'orange':
+        return 'o';
+      case 'gray':
+        return 'G';
+      default:
+        throw new Error(`Unknown color: ${color}`);
     }
   }
 }

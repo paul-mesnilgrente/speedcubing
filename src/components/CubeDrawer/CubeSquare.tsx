@@ -8,7 +8,7 @@ export default function CubeSquare({ cube, face, index, onClick }: { cube: Cube;
     <button
       onClick={() => onClick(face, index)}
       className={clsx(
-        styles['c-piece'],
+        styles['c-square'],
         styles[`p-${cube.getSquare(face, index)}`]
       )}
     />

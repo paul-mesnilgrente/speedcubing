@@ -1,5 +1,5 @@
 .flat-cube {
-  max-width: 50rem;
+  min-width: 5rem;
 
   display: grid;
   /* 4 columns, subtracting 3 gaps of 2% each (total 6%) from 100% */

@@ -11,7 +11,11 @@ export default function DrawingTools({activeColor, colors, onChange, onInputChan
         {colors.map((color) => (
           <button
             key={color}
-            className={clsx(styles[`p-${color}`], drawingStyles['color-button'], {[drawingStyles['color-button--active']]: color === activeColor})}
+            className={clsx(
+              styles[`p-${color}`],
+              drawingStyles['color-button'],
+              { [drawingStyles['color-button--active']]: color === activeColor}
+            )}
             onClick={() => onChange(color)}
           ></button>
         ))}

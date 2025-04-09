@@ -1,7 +1,5 @@
 
 import { ReactNode } from 'react';
-import clsx from 'clsx';
-import html2canvas from 'html2canvas';
 import styles from './index.module.css';
 import flatStyles from './FlatCubeDrawer3x3.module.css';
 import DrawingTools from './DrawingTools';
@@ -56,17 +54,19 @@ export default function FlatCubeDrawer3x3(): ReactNode {
         onDownload={() => handleDownload('flat-cube', 'flat-cube.png')}
       />
 
-      <div id="flat-cube" className={clsx(styles['drawing-zone'], flatStyles['flat-cube'])}>
-        <div></div>
-        <CubeFace cube={cube} face="up" handleClick={handleClick} />
-        <div></div>
-        <div></div>
-        <CubeFace cube={cube} face="left" handleClick={handleClick} />
-        <CubeFace cube={cube} face="front" handleClick={handleClick} />
-        <CubeFace cube={cube} face="right" handleClick={handleClick} />
-        <CubeFace cube={cube} face="back" handleClick={handleClick} />
-        <div></div>
-        <CubeFace cube={cube} face="down" handleClick={handleClick} />
+      <div className={styles['drawing-zone']}>
+        <div id="flat-cube" className={flatStyles['flat-cube']}>
+          <div></div>
+          <CubeFace cube={cube} face="up" handleClick={handleClick} />
+          <div></div>
+          <div></div>
+          <CubeFace cube={cube} face="left" handleClick={handleClick} />
+          <CubeFace cube={cube} face="front" handleClick={handleClick} />
+          <CubeFace cube={cube} face="right" handleClick={handleClick} />
+          <CubeFace cube={cube} face="back" handleClick={handleClick} />
+          <div></div>
+          <CubeFace cube={cube} face="down" handleClick={handleClick} />
+        </div>
       </div>
     </>
   );
