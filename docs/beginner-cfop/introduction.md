@@ -30,9 +30,9 @@ Gets the yellow face in order to have a solved layer.
 
 ## Sources
 
-- https://www.youtube.com/watch?v=Tvt85mW28vo
+- [Youtube:  How This Rubik's Cube Method Broke ALL Records!](https://www.youtube.com/watch?v=Tvt85mW28vo)
+- [Youtube: Learn Intuitive F2L [Beginner CFOP]](https://www.youtube.com/watch?v=ReOZZHscIGk)
+- [Youtube: 3 F2L examples](https://www.youtube.com/watch?v=LjaJ3fMvAlw)
 - https://www.cube.academy/beginner-cfop
-- Intuitive F2L: https://www.youtube.com/watch?v=ReOZZHscIGk
-- 3 F2L examples: https://www.youtube.com/watch?v=LjaJ3fMvAlw
 - https://solvethecube.com/
 - https://www.speedcubedb.com/

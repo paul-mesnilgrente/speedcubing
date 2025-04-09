@@ -1,3 +1,5 @@
+import Cube from '../CubeDrawer/Cube';
+import TopViewWithSides from '../CubeDrawer/TopViewWithSides';
 import styles from './styles.module.css';
 import { Fragment } from 'react';
 
@@ -5,12 +7,14 @@ export default function CubeInstruction({
   title,
   link,
   src,
+  cubeDescription,
   hold,
   children,
 }: {
   title: string;
   link: string | undefined;
   src: string;
+  cubeDescription: string;
   hold: string;
   children: React.ReactNode;
 }) {
@@ -23,13 +27,20 @@ export default function CubeInstruction({
         <TitleTag {...titleProps}>{title}</TitleTag>
       </p>
       <div className={styles.instructions__image}>
-        <img
-          src={src}
-          width="225"
-          height="225"
-          alt=""
-          className={styles.instructions__image}
-        />
+        {cubeDescription && (
+          <TopViewWithSides
+            cube={new Cube(cubeDescription)}
+            handleClick={() => {}}
+          />
+        ) || (
+          <img
+            src={src}
+            width="225"
+            height="225"
+            alt=""
+            className={styles.instructions__image}
+          />
+        )}
       </div>
       <div className={styles.instructions__body}>
         {children}

@@ -30,6 +30,7 @@ Reminder:
     title="Sune"
     link="https://www.speedcubedb.com/a/3x3/OLL/OLL_27"
     src={useBaseUrl("/img/2-look-oll/image.png")}
+    cubeDescription="GyGyyyyyG GGy yGG GGy GGG"
     hold="Hold yellow on top, blue front"
   >
     (R U R') (U R U2 R')
