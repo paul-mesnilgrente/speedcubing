@@ -1,6 +1,7 @@
 .drawing-zone {
   margin: 2rem 0 2rem 0;
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
   border: 1px solid var(--ifm-color-content);
   padding: 2%;
 }

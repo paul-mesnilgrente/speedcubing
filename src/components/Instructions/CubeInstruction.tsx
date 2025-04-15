@@ -26,22 +26,24 @@ export default function CubeInstruction({
       <p className={styles.instructions__header}>
         <TitleTag {...titleProps}>{title}</TitleTag>
       </p>
-      <div className={styles.instructions__image}>
         {cubeDescription && (
-          <TopViewWithSides
-            cube={new Cube(cubeDescription)}
-            handleClick={() => {}}
-          />
+          <div className={styles.instructions__topview}>
+            <TopViewWithSides
+              cube={new Cube(cubeDescription)}
+              handleClick={() => {}}
+            />
+          </div>
         ) || (
-          <img
-            src={src}
-            width="225"
-            height="225"
-            alt=""
-            className={styles.instructions__image}
-          />
+          <div className={styles.instructions__image}>
+            <img
+              src={src}
+              width="225"
+              height="225"
+              alt=""
+              className={styles.instructions__image}
+            />
+          </div>
         )}
-      </div>
       <div className={styles.instructions__body}>
         {children}
       </div>

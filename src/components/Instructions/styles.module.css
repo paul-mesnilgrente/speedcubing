@@ -4,6 +4,12 @@
   flex-wrap: wrap;
 }
 
+@media print {
+  .instructions__card {
+    border: 1px solid var(--ifm-color-primary);
+  }
+}
+
 .instructions__card {
   background-color: var(--ifm-card-background-color);
   border-radius: var(--ifm-card-border-radius);
@@ -24,6 +30,13 @@
   margin-inline: auto;
   max-width: 100%;
   height: auto;
+}
+
+.instructions__topview {
+  padding: 0 .5rem;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
 }
 
 .instructions__body {

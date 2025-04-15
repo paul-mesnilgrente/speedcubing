@@ -1,5 +1,6 @@
 .face-cube {
-  min-width: 5rem;
+  max-width: 100%;
+  width: 18rem;
 
   display: grid;
   grid-template-columns: 2fr 5fr 5fr 5fr 2fr;
